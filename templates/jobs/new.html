@@ -1,0 +1,10 @@
+<main class="ph3 ph5-l bg-washed-blue w-100 tc">
+    <div class="w-70 dib">
+        <h1 class="black-50">New Job</h1>
+
+        <%= form_for(job, {action: jobsPath(), method: "POST"}) { %>
+        <%= partial("jobs/form.html") %>
+        <a href="<%= jobsPath() %>" class="btn dib tc bg-yellow no-underline dim" data-confirm="Are you sure?">Cancel</a>
+        <% } %>
+    </div>
+</main>

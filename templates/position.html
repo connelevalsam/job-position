@@ -1,0 +1,46 @@
+<!-- header -->
+<header class="cover w-100 vh-25 bg-left bg-center-l" style="background-image: url(https://desiredpersona.com/assets/images/macbook.jpg)">
+    <div class="w-100">
+        <div class="dib w-50 w-30-ns">
+            <a href="/" class="f4 f3-ns fw6 fw8-l white dim pointer link">CB<i>jobs</i></a>
+        </div><div class="main-nav dib w-70-ns tr-ns">
+            <div class="w-100">
+                <a href="/position" class="f6 f5-ns fw2 fw5-ns bgColor br2 pa2 link pointer dim mv2 mv0-l mr4-l db dib-ns no-underline">Position</a>
+                <a href="/aboutUs" class="f6 f5-ns fw2 fw5-ns bgColor br2 pa2 link pointer dim mv2 mv0-l mr4-l db dib-ns no-underline">About</a>
+            </div>
+        </div>
+        <a href="#" class="responsive-menu-open no-underline grow">
+            <span class="v-top">menu</span>
+        </a>
+    </div>
+</header>
+<div class="responsive-menu">
+    <div class="dib w-30">
+        <a href="/" class="f4 f3-ns fw6 fw8-l black-70 dim pointer link">CB<i>jobs</i></a>
+    </div>
+    <a href="#" class="responsive-menu-close no-underline grow">
+        <span class="v-top black-70">menu</span>
+    </a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+<!-- container -->
+<main class="w-100 ph2 ph4-ns">
+    <div class="w-100">
+        <p class="">
+            This page contains positions
+        </p>
+        <%= for (category, jobs) in listJob { %>
+        <div class="w-100 shadow-1 bt b--black-10 pv2">
+            <h4 class="navy"><%= category %></h4>
+            <%= for (job) in jobs { %>
+            <div class="pv3 ">
+                <h4><%= job.Name %></h4>
+                <h5><%= job.Description %></h5>
+                <h5><%= job.Salary %></h5>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+    </div>
+</main>

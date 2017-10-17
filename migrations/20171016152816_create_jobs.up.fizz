@@ -1,0 +1,7 @@
+create_table("jobs", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("name", "string", {})
+	t.Column("category", "string", {"null": true})
+	t.Column("description", "string", {})
+	t.Column("salary", "string", {})
+})

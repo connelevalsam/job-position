@@ -1,0 +1,42 @@
+<style>
+  .btn {
+          border-radius: 3px;
+          display: inline-block;
+          text-align: center;
+          cursor: pointer;
+          color: white;
+          outline: none;
+          line-height: 40px;
+          width: auto;
+          min-width: 100px;
+          padding: 0 20px;
+          border: solid 1px transparent;
+  }
+</style>
+<main class="ph3 ph5-l bg-washed-blue w-100 tc">
+    <div class="w-70 dib">
+        <h1>Show Job</h1>
+
+        <div class="w-100">
+            <a href="<%= jobsPath() %>" class="btn bg-blue link">Back to all Jobs</a>
+            <a href="<%= editJobPath({ job_id: job.ID })%>" class="btn bg-yellow link">Edit</a>
+            <a href="<%= jobPath({ job_id: job.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn bg-red link">Destroy</a>
+        </div>
+
+        <div class="w-100 tl">
+            <blockquote>
+                <strong>Name</strong>: <%= job.Name %>
+            </blockquote>
+            <blockquote>
+                <strong>Category</strong>: <%= job.Category %>
+            </blockquote>
+            <blockquote>
+                <strong>Description</strong>: <%= job.Description %>
+            </blockquote>
+            <blockquote>
+                <strong>Salary</strong>: <%= job.Salary %>
+            </blockquote>
+        </div>
+
+    </div>
+</main>

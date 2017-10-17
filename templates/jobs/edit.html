@@ -1,0 +1,6 @@
+<h1>Edit Job</h1>
+
+<%= form_for(job, {action: jobPath({ job_id: job.ID }), method: "PUT"}) { %>
+  <%= partial("jobs/form.html") %>
+  <a href="<%= jobsPath({ job_id: job.ID }) %>" class="pv2 ph4 bg-yellow white br2" data-confirm="Are you sure?">Cancel</a>
+<% } %>

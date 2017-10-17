@@ -1,0 +1,74 @@
+<style>
+  .btn {
+      border-radius: 3px;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      color: white;
+      outline: none;
+      line-height: 30px;
+      width: auto;
+      min-width: 100px;
+      padding: 0 10px;
+      transition-duration: 150ms;
+      border: solid 1px transparent;
+  }
+</style>
+<main class="ph3 bg-washed-green mt0">
+  <h1>Jobs</h1>
+  <p>
+    <a href="<%= newJobsPath() %>" class="btn bg-green no-underline grow">Create New Job</a>
+  </p>
+  <!-- ====== table =====-->
+  <div class="w-100 overflow-auto">
+    <table class="f6 w-100 mw9 center" cellspacing="0">
+      <!-- table head -->
+      <thead>
+      <tr>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+          Name
+        </th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+          Category
+        </th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+          Description
+        </th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+          Salary
+        </th>
+      </tr>
+      </thead>
+      <!-- table body -->
+      <tbody class="lh-copy">
+      <%= for (job) in jobs { %>
+      <tr>
+        <td class="pv3 pr2 bb b--black-20">
+          <%= job.Name %>
+        </td>
+        <td class="pv3 pr2 bb b--black-20">
+          <%= job.Category %>
+        </td>
+        <td class="pv3 pr2 bb b--black-20 mw6">
+          <%= job.Description %>
+        </td>
+        <td class="pv3 pr2 bb b--black-20">
+          <%= job.Salary %>
+        </td>
+        <td class="pv3 bb b--black-20">
+          <div class="tr">
+            <a href="<%= jobPath({ job_id: job.ID }) %>" class="btn bg-blue dib fw6 link dim">View</a>
+            <a href="<%= editJobPath({ job_id: job.ID }) %>" class="btn bg-yellow dib fw6 link dim">Edit</a>
+            <a href="<%= jobPath({ job_id: job.ID }) %>" data-method="DELETE" data-confirm="Are you sure? Deleting <%= job.Name %>" class="btn bg-red dib fw6 link dim">Destroy</a>
+          </div>
+        </td>
+      </tr>
+      <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tc">
+    <%= paginator(pagination) %>
+  </div>
+</main>

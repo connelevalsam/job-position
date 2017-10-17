@@ -1,0 +1,12 @@
+<div class="w-100 ph3">
+    <div class="w-100">
+        <%= for (k, messages) in flash { %>
+        <%= for (msg) in messages { %>
+        <div class="bg-washed-green green pv2 alert alert-<%= k %>" role="alert">
+            <button type="button" class="bg-red black br2 pa1 outline-0 pointer close bn" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= msg %>
+        </div>
+        <% } %>
+        <% } %>
+    </div>
+</div>
