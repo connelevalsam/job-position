@@ -1,5 +1,5 @@
 <!-- header -->
-<header class="cover w-100 vh-25 bg-left bg-center-l" style="background-image: url(https://desiredpersona.com/assets/images/macbook.jpg)">
+<header class="cover w-100 vh-25 bg-left bg-center-l" style="background-image: url(assets/images/bg1.jpg)">
     <div class="w-100">
         <div class="dib w-50 w-30-ns">
             <a href="/" class="f4 f3-ns fw6 fw8-l white dim pointer link">CB<i>jobs</i></a>
@@ -25,22 +25,31 @@
 </div> <!-- end .responsive-menu -->
 <!-- container -->
 <main class="w-100 ph2 ph4-ns">
-    <div class="w-100">
+    <div class="w-100 tc">
         <p class="">
             This page contains positions
         </p>
-        <%= for (category, jobs) in listJob { %>
-        <div class="w-100 shadow-1 bt b--black-10 pv2">
-            <h4 class="navy"><%= category %></h4>
-            <%= for (job) in jobs { %>
-            <div class="pv3 ">
-                <h4><%= job.Name %></h4>
-                <h5><%= job.Description %></h5>
-                <h5><%= job.Salary %></h5>
-            </div>
+        <div class="w-100 w-80-ns nowrap overflow-x-auto overflow-y-hidden">
+            <%= for (category, jobs) in listJob { %>
+                <a href="#<%= category %>" class="link pointer f6 f5-ns pa2 bg-light-gray black-80 dim mr2 mr3-ns"><%= category %></a>
             <% } %>
         </div>
-    </div>
-    <% } %>
+        <div class="w-70 dib">
+            <%= for (category, jobs) in listJob { %>
+                <div class="w-100 br2 shadow-1 bt b--black-10 pv2 mv3 mv4-l tl">
+                    <h4 id="<%= category %>" class="green f2 fw6"><%= category %></h4>
+                    <%= for (job) in jobs { %>
+                    <div class="pv3 bt b--black-20">
+                        <h4 class="blue f3 fw6"><%= job.Name %></h4>
+                        <h5 class="black-80 f5 fw6"><%= job.Description %></h5>
+                        <span class="gray ttc f5 fw6">
+                            median salary:
+                        </span>
+                        <h5 class="black-40 f6 fw6 dib"><%= job.Salary %></h5>
+                    </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
     </div>
 </main>
